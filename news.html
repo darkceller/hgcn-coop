@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最新公告 - 主婦聯盟新竹分社</title>
+    <style>
+        :root {
+            --primary-green: #2d5a27; 
+            --accent-orange: #e67e22;
+            --light-bg: #f5f2ed;
+            --card-white: #ffffff;
+            --text-color: #3e3a39;
+        }
+
+        body { 
+            font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif; 
+            line-height: 1.8; margin: 0; color: var(--text-color); background-color: var(--light-bg); 
+        }
+
+        header { 
+            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--primary-green); padding: 1rem 0; 
+            position: sticky; top: 0; z-index: 1000;
+        }
+
+        nav { display: flex; justify-content: space-around; max-width: 1000px; margin: auto; }
+        nav a { text-decoration: none; color: var(--primary-green); font-weight: bold; padding: 0.5rem 1rem; }
+
+        .container { max-width: 800px; margin: 3rem auto; padding: 0 1rem; }
+        h1 { color: var(--primary-green); text-align: center; margin-bottom: 3rem; }
+
+        /* 公告列表樣式 */
+        .news-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border-left: 5px solid var(--primary-green);
+        }
+        .news-date { color: #888; font-size: 0.9rem; font-weight: bold; }
+        .news-tag { 
+            background: var(--accent-orange); color: white; 
+            padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 10px;
+        }
+        .news-title { font-size: 1.2rem; font-weight: bold; margin: 10px 0; color: var(--text-color); }
+        .news-content { font-size: 1rem; color: #555; }
+
+        footer { background: #4a4543; color: #dcd7d4; text-align: center; padding: 2rem 0; margin-top: 5rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="news.html">最新公告</a>
+            <a href="https://darkceller.github.io/coop-calendar/" target="_blank">活動月曆</a>
+            <a href="https://darkceller.github.io/coop-meeting/" target="_blank">雲端議事</a>
+            <a href="community.html">社員投稿</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>📢 最新公告</h1>
+
+        <div class="news-item" style="border-left-color: var(--accent-orange);">
+            <div class="news-date">2026-03-08 <span class="news-tag">重要</span></div>
+            <div class="news-title">新竹分社官網系統測試上線公告</div>
+            <div class="news-content">
+                各位社員好，新竹分社自主開發的資訊整合平台於今日起開始測試。
+                目前包含活動月曆、雲端議事、社員投稿等功能，歡迎大家多加利用並給予建議。
+            </div>
+        </div>
+
+        <div class="news-item">
+            <div class="news-date">2026-03-01 <span class="news-tag">活動</span></div>
+            <div class="news-title">三月份各站所取貨時間調整通知</div>
+            <div class="news-content">
+                因應連假調整，新竹站與竹北站之班次將有所更動，請各位社員留意取貨簡訊...
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 台灣主婦聯盟生活消費合作社 新竹分社</p>
+    </footer>
+
+</body>
+</html>
