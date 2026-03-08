@@ -3,89 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>社員投稿心得牆</title>
+    <title>社員心得牆 - 主婦聯盟新竹分社</title>
     <style>
         :root {
             --primary-green: #2d5a27; 
             --accent-orange: #e67e22;
-            --light-bg: #f5f2ed; /* 延續首頁的米色 */
-            --card-white: #ffffff;
+            --light-bg: #f5f2ed;
             --text-color: #3e3a39;
         }
-
-        body { 
-            font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif; 
-            line-height: 1.8; 
-            margin: 0; 
-            color: var(--text-color); 
-            background-color: var(--light-bg); 
-        }
-
-        header { 
-            background: rgba(255, 255, 255, 0.8); 
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--primary-green); 
-            padding: 1rem 0; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000;
-        }
-
-        nav { display: flex; justify-content: space-around; max-width: 1000px; margin: auto; }
+        body { font-family: "Microsoft JhengHei", sans-serif; line-height: 1.8; margin: 0; color: var(--text-color); background-color: var(--light-bg); }
+        header { background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); border-bottom: 2px solid var(--primary-green); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; }
+        nav { display: flex; justify-content: space-around; max-width: 1000px; margin: auto; flex-wrap: wrap; }
         nav a { text-decoration: none; color: var(--primary-green); font-weight: bold; padding: 0.5rem 1rem; }
+        nav a.active { color: var(--accent-orange); border-bottom: 2px solid var(--accent-orange); }
 
-        .container { max-width: 1100px; margin: 3rem auto; padding: 0 1rem; }
-
+        .container { max-width: 800px; margin: 3rem auto; padding: 0 1rem; }
         h1 { color: var(--primary-green); text-align: center; margin-bottom: 3rem; }
-        h2 { color: var(--primary-green); border-left: 5px solid var(--primary-green); padding-left: 15px; }
-
-        /* 投稿須知區塊 */
-        .notice-section {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 4rem;
-            border: 1px solid #e0ddd8;
-        }
-        .notice-list { padding-left: 1.5rem; }
-        .notice-list li { margin-bottom: 0.5rem; }
-
-        /* 心得牆 Grid Layout */
-        .wall-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .post-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-        .post-card:hover { transform: translateY(-5px); }
         
-        .post-image {
-            width: 100%;
-            height: 200px;
-            background-color: #ddd; /* 預設背景色 */
-            background-size: cover;
-            background-position: center;
-        }
+        /* 全文文章樣式 */
+        .full-post { background: white; padding: 2.5rem; border-radius: 15px; margin-bottom: 3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .post-tag { background: #e9f5e8; color: var(--primary-green); padding: 2px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
+        .post-title { font-size: 1.8rem; margin: 1rem 0; color: var(--primary-green); }
+        .post-meta { font-size: 0.9rem; color: #888; margin-bottom: 2rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .post-content img { max-width: 100%; border-radius: 10px; margin: 1.5rem 0; display: block; }
+        
+        /* 投稿須知區塊 */
+        .notice-card { background: #fffbe6; padding: 2rem; border-radius: 15px; border: 1px solid #ffe58f; margin-top: 5rem; }
+        .btn { display: inline-block; background: var(--primary-green); color: white; padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 1.5rem; transition: 0.3s; }
+        .btn:hover { background: var(--accent-orange); }
 
-        .post-content { padding: 1.5rem; }
-        .post-tag { background: var(--soft-green, #e9f5e8); color: var(--primary-green); padding: 2px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
-        .post-title { font-size: 1.2rem; font-weight: bold; margin: 10px 0; color: var(--primary-green); }
-        .post-excerpt { font-size: 0.95rem; color: #666; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-        .post-author { margin-top: 1.5rem; font-size: 0.85rem; color: #888; border-top: 1px solid #eee; padding-top: 10px; }
-
-        .cta-box { text-align: center; margin-top: 4rem; padding: 3rem; background: var(--primary-green); color: white; border-radius: 15px; }
-        .btn-white { display: inline-block; background: white; color: var(--primary-green); padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 1.5rem; }
-
-        footer { background: #4a4543; color: #dcd7d4; text-align: center; padding: 2rem 0; margin-top: 5rem; }
+        footer { background: #4a4543; color: #dcd7d4; text-align: center; padding: 3rem 0; margin-top: 5rem; }
     </style>
 </head>
 <body>
@@ -93,9 +40,10 @@
     <header>
         <nav>
             <a href="index.html">首頁</a>
+            <a href="news.html">最新公告</a>
             <a href="https://darkceller.github.io/coop-calendar/" target="_blank">活動月曆</a>
+            <a href="community.html" class="active">社員心得牆</a>
             <a href="https://darkceller.github.io/coop-meeting/" target="_blank">雲端議事</a>
-            <a href="community.html">社員投稿</a>
             <a href="https://www.hucc-coop.tw/" target="_blank">本社官網</a>
         </nav>
     </header>
@@ -103,54 +51,39 @@
     <div class="container">
         <h1>🌱 社員心得牆</h1>
 
-        <section class="notice-section">
-            <h2>📢 投稿須知</h2>
-            <ul class="notice-list">
-                <li><strong>對象：</strong> 歡迎所有主婦聯盟生活消費合作社社員投稿。</li>
-                <li><strong>主題：</strong> 站務活動參與心得、產品料理紀錄、產地探訪筆記等。</li>
-                <li><strong>字數：</strong> 建議 300-800 字，並附上 1-3 張相關照片。</li>
-                <li><strong>版權：</strong> 投稿即表示同意新竹分社於官網、粉專及文宣中使用。</li>
-                <li><strong>方式：</strong> 請將稿件寄至新竹分社信箱：<a href="mailto:hsinchu@hucc.org.tw">hsinchu@hucc.org.tw</a>，主旨註明「官網投稿-姓名」。</li>
+        <article class="full-post">
+            <span class="post-tag">站務活動</span>
+            <h2 class="post-title">【心得】參加新竹站「友善米」講座有感</h2>
+            <div class="post-meta">發表於 2026-03-01 | 社員：林小明</div>
+            <div class="post-content">
+                <p>原來我們買的每一口米，都在守護水源地。這次講座讓我深刻了解共同購買的力量...</p>
+                <img src="logo.png" alt="講座現場照片">
+                <p>透過生產者的分享，我們知道每一粒米背後辛勤的汗水與對土地的承諾。身為社員，我們不只是消費者，更是土地的守護者。</p>
+            </div>
+        </article>
+
+        <article class="full-post">
+            <span class="post-tag">親子生活</span>
+            <h2 class="post-title">【活動】竹北站兒童節繪本分享會紀錄</h2>
+            <div class="post-meta">發表於 2026-02-15 | 社員：陳大美</div>
+            <div class="post-content">
+                <p>看到孩子們開心地認識蔬菜，真的覺得這一切很值得。合作社不只是買菜的地方，更是教育的空間。</p>
+                <p>當天的小朋友們都非常有活力，透過繪本認識了當季的食蔬，這就是最棒的食農教育...</p>
+            </div>
+        </article>
+
+        <section class="notice-card">
+            <h3>📢 投稿須知</h3>
+            <ul style="padding-left: 1.2rem; line-height: 2;">
+                <li>歡迎所有社員投稿站務參與心得、產品料理紀錄。</li>
+                <li>建議字數 300-800 字，並附上 1-3 張相關照片。</li>
+                <li>投稿即表示同意新竹分社於官網與文宣中使用。</li>
             </ul>
+            <div style="text-align: center; margin-top: 2rem;">
+                <p>您的故事，是我們最好的推廣！</p>
+                <a href="mailto:hsinchu@hucc.org.tw" class="btn">立即聯繫投稿</a>
+            </div>
         </section>
-
-        <div class="wall-grid">
-            <article class="post-card" id="post-1">
-                <div class="post-image" style="background-image: url('images/post1.jpg');"></div>
-                <div class="post-content">
-                    <span class="post-tag">站務活動</span>
-                    <div class="post-title">新竹站「友善米」講座有感</div>
-                    <p class="post-excerpt">原來我們買的每一口米，都在守護水源地。這次講座讓我深刻了解共同購買的力量...</p>
-                    <div class="post-author">發表於 2026-03-01 | 社員：林小明</div>
-                </div>
-            </article>
-
-            <article class="post-card" id="post-2">
-                <div class="post-image" style="background-image: url('images/post2.jpg');"></div>
-                <div class="post-content">
-                    <span class="post-tag">親子生活</span>
-                    <div class="post-title">竹北站兒童節繪本分享會</div>
-                    <p class="post-excerpt">看到孩子們開心地認識蔬菜，真的覺得這一切很值得。合作社不只是買菜的地方，更是教育的空間。</p>
-                    <div class="post-author">發表於 2026-02-15 | 社員：陳大美</div>
-                </div>
-            </article>
-
-            <article class="post-card">
-                <div class="post-image" style="background-image: url('images/post3.jpg');"></div>
-                <div class="post-content">
-                    <span class="post-tag">料理紀錄</span>
-                    <div class="post-title">用合作社食材做出一桌春季野餐</div>
-                    <p class="post-excerpt">這次使用了友善耕作的草莓與土雞蛋，簡單的調味就能吃出食材的本味...</p>
-                    <div class="post-author">發表於 2026-02-10 | 社員：王阿派</div>
-                </div>
-            </article>
-        </div>
-
-        <div class="cta-box">
-            <h3>您的故事，是我們最好的推廣</h3>
-            <p>寫下您的心得，讓更多人看見共同購買的價值。</p>
-            <a href="mailto:hsinchu@hucc.org.tw" class="btn-white">立即聯繫投稿</a>
-        </div>
     </div>
 
     <footer>
