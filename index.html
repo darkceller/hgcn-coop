@@ -9,8 +9,10 @@
             --primary-green: #2d5a27; 
             --soft-green: #e9f5e8;
             --accent-orange: #e67e22;
-            --light-bg: #fdfdfd;
-            --text-color: #333;
+            /* 調整為柔和米色 */
+            --light-bg: #f5f2ed; 
+            --card-white: #ffffff;
+            --text-color: #3e3a39;
         }
 
         body { 
@@ -21,16 +23,15 @@
             background-color: var(--light-bg); 
         }
 
-        /* 導覽列優化：加入毛玻璃效果與字距 */
+        /* 導覽列：配合米色底，改為微透明白色 */
         header { 
-            background: rgba(255, 255, 255, 0.9); 
+            background: rgba(255, 255, 255, 0.8); 
             backdrop-filter: blur(10px);
-            border-bottom: 3px solid var(--primary-green); 
+            border-bottom: 2px solid var(--primary-green); 
             padding: 1rem 0; 
             position: sticky; 
             top: 0; 
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         nav { 
@@ -47,19 +48,14 @@
             color: var(--primary-green); 
             font-weight: bold; 
             padding: 0.6rem 1rem;
-            letter-spacing: 1px;
             transition: all 0.3s ease;
         }
 
-        nav a:hover { 
-            color: var(--accent-orange);
-            transform: translateY(-2px);
-        }
+        nav a:hover { color: var(--accent-orange); }
 
-        /* Hero 區塊：增加呼吸空間與圖片陰影 */
         .hero { 
-            background: white; 
-            padding: 3rem 1rem; 
+            background: transparent; 
+            padding: 2rem 1rem; 
             text-align: center; 
         }
 
@@ -67,80 +63,64 @@
             max-width: 1000px; 
             width: 100%; 
             height: auto; 
-            display: block;
-            margin: 0 auto;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         }
 
         .container { 
             max-width: 1000px; 
-            margin: 3rem auto; 
+            margin: 2rem auto; 
             padding: 0 1rem; 
         }
 
         h2 {
             color: var(--primary-green);
-            border-left: 6px solid var(--primary-green);
-            padding-left: 15px;
+            border-bottom: 2px solid var(--primary-green);
+            padding-bottom: 10px;
+            display: inline-block;
             margin-bottom: 1.5rem;
-            font-size: 1.5rem;
         }
 
-        /* 卡片設計優化：更圓潤、加入懸浮效果 */
         .grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 2rem; 
         }
 
+        /* 卡片設計：增加柔和感 */
         .card { 
-            background: white; 
+            background: var(--card-white); 
             padding: 2rem; 
-            border-radius: 16px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-            border: 1px solid #f0f0f0;
+            border-radius: 12px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
             transition: all 0.3s ease;
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.07); }
 
-        .card h3 {
-            margin-top: 0;
-            color: var(--primary-green);
+        /* 社員投稿專區樣式 */
+        .post-preview {
+            border-bottom: 1px dashed #ccc;
+            padding: 1rem 0;
+            margin-bottom: 1rem;
         }
+        .post-title { font-weight: bold; color: var(--primary-green); display: block; text-decoration: none; }
+        .post-meta { font-size: 0.85rem; color: #888; }
 
-        /* 按鈕美化：膠囊形狀與位移感 */
         .btn { 
             display: inline-block; 
             background: var(--primary-green); 
             color: white; 
-            padding: 0.7rem 1.8rem; 
+            padding: 0.6rem 1.5rem; 
             border-radius: 50px; 
             text-decoration: none; 
             margin-top: 1rem; 
             font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(45, 90, 39, 0.2);
+            transition: 0.3s;
         }
+        .btn:hover { background: var(--accent-orange); }
 
-        .btn:hover { 
-            background: #3e7a36; 
-            box-shadow: 0 6px 20px rgba(45, 90, 39, 0.3);
-            transform: scale(1.05);
-        }
-
-        footer { 
-            background: #333; 
-            color: #ccc; 
-            text-align: center; 
-            padding: 3rem 0; 
-            margin-top: 5rem;
-            font-size: 0.9rem;
-        }
+        footer { background: #4a4543; color: #dcd7d4; text-align: center; padding: 3rem 0; margin-top: 5rem; }
     </style>
 </head>
 <body>
@@ -150,8 +130,8 @@
             <a href="index.html">首頁</a>
             <a href="https://darkceller.github.io/coop-calendar/" target="_blank">活動月曆</a>
             <a href="https://darkceller.github.io/coop-meeting/" target="_blank">雲端議事</a>
+            <a href="#community">社員投稿</a>
             <a href="https://www.hucc-coop.tw/register" target="_blank">加入我們</a>
-            <a href="https://www.hucc-coop.tw/" target="_blank">本社官網</a>
         </nav>
     </header>
 
@@ -161,39 +141,52 @@
         </section>
 
         <div class="container">
-            <section id="news">
+            <section id="news" style="margin-bottom: 4rem;">
                 <h2>最新公告</h2>
-                <div class="card" style="border-left: 5px solid var(--accent-orange);">
-                    <p><strong>[公告]</strong> 2026年3月8日 本系統測試上線中</p>
+                <div class="card" style="border-left: 8px solid var(--accent-orange);">
+                    <p><strong>[公告]</strong> 2026年3月8日 本系統測試上線中，歡迎社員試用並提供回饋。</p>
                 </div>
             </section>
 
-            <section id="quick-links" style="margin-top: 4rem;">
-                <h2>快速服務</h2>
-                <div class="grid">
-                    <div class="card">
+            <div class="grid">
+                <section id="quick-links">
+                    <h2>快速服務</h2>
+                    <div class="card" style="margin-bottom: 1.5rem;">
                         <h3>活動月曆</h3>
-                        <p>掌握新竹各站點的最新課程與站務活動，歡迎踴躍參與。</p>
+                        <p>掌握新竹各站點的最新課程與活動。</p>
                         <a href="https://darkceller.github.io/coop-calendar/" class="btn" target="_blank">查看月曆</a>
                     </div>
                     <div class="card">
                         <h3>雲端議事</h3>
-                        <p>秉持民主參與精神，分社所有會議記錄均公開透明供查閱。</p>
+                        <p>分社議事紀錄公開透明，歡迎查閱。</p>
                         <a href="https://darkceller.github.io/coop-meeting/" class="btn" target="_blank">進入系統</a>
                     </div>
+                </section>
+
+                <section id="community">
+                    <h2>社員投稿專區</h2>
                     <div class="card">
-                        <h3>加入我們</h3>
-                        <p>認同共同購買理念嗎？歡迎加入合作社，與我們一起實踐好生活。</p>
-                        <a href="https://www.hucc-coop.tw/register" class="btn" target="_blank">線上入社</a>
+                        <div class="post-preview">
+                            <a href="#" class="post-title">【心得】參加新竹站「友善米」講座有感</a>
+                            <span class="post-meta">發表於 2026-03-01 | 社員：林小明</span>
+                            <p style="font-size: 0.95rem;">原來我們買的每一口米，都在守護水源地...</p>
+                        </div>
+                        <div class="post-preview">
+                            <a href="#" class="post-title">【活動】竹北站兒童節繪本分享會紀錄</a>
+                            <span class="post-meta">發表於 2026-02-15 | 社員：陳大美</span>
+                            <p style="font-size: 0.95rem;">看到孩子們開心地認識蔬菜，真的覺得這一切很值得。</p>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #666;">※ 想要分享心得嗎？請將文字稿寄至分社信箱。</p>
+                        <a href="mailto:hsinchu@hucc.org.tw" class="btn" style="background: transparent; color: var(--primary-green); border: 2px solid var(--primary-green);">我要投稿</a>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
     </main>
 
     <footer>
         <p>&copy; 2026 台灣主婦聯盟生活消費合作社 新竹分社</p>
-        <p style="font-size: 0.8rem; margin-top: 10px;">由新竹分社社員自主開發維護</p>
+        <p style="font-size: 0.8rem;">致力於友善環境與共同購買的實踐</p>
     </footer>
 
 </body>
