@@ -6,16 +6,15 @@
     <title>主婦聯盟消費合作社 - 新竹分社</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* 這裡先放一些基礎樣式，你之後可以搬移到 style.css */
         :root {
-            --primary-green: #2d5a27; /* 主婦聯盟經典綠 */
+            --primary-green: #2d5a27; 
             --accent-orange: #e67e22;
             --light-bg: #f9f9f9;
         }
         body { font-family: "Microsoft JhengHei", sans-serif; line-height: 1.6; margin: 0; color: #333; background-color: var(--light-bg); }
         header { background: white; border-bottom: 3px solid var(--primary-green); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; }
-        nav { display: flex; justify-content: space-around; align-items: center; max-width: 1000px; margin: auto; }
-        nav a { text-decoration: none; color: var(--primary-green); font-weight: bold; }
+        nav { display: flex; justify-content: space-around; align-items: center; max-width: 1000px; margin: auto; flex-wrap: wrap; }
+        nav a { text-decoration: none; color: var(--primary-green); font-weight: bold; padding: 0.5rem; }
         
         .hero { background: var(--primary-green); color: white; padding: 4rem 1rem; text-align: center; }
         .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
@@ -23,6 +22,7 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .btn { display: inline-block; background: var(--primary-green); color: white; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; margin-top: 1rem; }
+        .btn:hover { background: #3e7a36; }
         
         footer { background: #333; color: white; text-align: center; padding: 2rem 0; margin-top: 3rem; }
     </style>
@@ -33,10 +33,10 @@
         <nav>
             <div class="logo"><strong>新竹分社官網</strong></div>
             <a href="index.html">首頁</a>
-            <a href="calendar.html">活動月曆</a>
-            <a href="governance.html">雲端議事</a>
+            <a href="https://darkceller.github.io/coop-calendar/" target="_blank">活動月曆</a>
+            <a href="https://darkceller.github.io/coop-meeting/" target="_blank">雲端議事</a>
             <a href="shopping.html">消費資訊</a>
-            <a href="join.html">加入我們</a>
+            <a href="https://www.hucc-coop.tw/register" target="_blank">加入我們</a>
         </nav>
     </header>
 
@@ -50,28 +50,27 @@
             <section id="news">
                 <h2>最新公告</h2>
                 <div class="card">
-                    <p><strong>[公告]</strong> 2024 年 X 月份社員代表大會會議紀錄已上傳至議事系統。</p>
-                    <p><strong>[活動]</strong> 新竹站本週六舉辦「友善耕作講座」，歡迎報名。</p>
+                    <p><strong>[公告]</strong> 2026年3月8日 本系統測試上線中</p>
                 </div>
             </section>
 
             <section id="quick-links" style="margin-top: 3rem;">
-                <h2>快速入口</h2>
+                <h2>快速服務</h2>
                 <div class="grid">
                     <div class="card">
                         <h3>活動月曆</h3>
                         <p>掌握新竹各站點的最新課程與站務活動。</p>
-                        <a href="calendar.html" class="btn">查看月曆</a>
+                        <a href="https://darkceller.github.io/coop-calendar/" class="btn" target="_blank">查看月曆</a>
                     </div>
                     <div class="card">
                         <h3>雲端議事</h3>
                         <p>秉持民主參與精神，所有會議記錄公開透明。</p>
-                        <a href="governance.html" class="btn">進入系統</a>
+                        <a href="https://darkceller.github.io/coop-meeting/" class="btn" target="_blank">進入系統</a>
                     </div>
                     <div class="card">
-                        <h3>站所資訊</h3>
-                        <p>查詢新竹、竹北各站點的營業時間與地圖。</p>
-                        <a href="shopping.html" class="btn">找站所</a>
+                        <h3>加入我們</h3>
+                        <p>認同共同購買理念，歡迎加入合作社大家庭。</p>
+                        <a href="https://www.hucc-coop.tw/register" class="btn" target="_blank">線上入社</a>
                     </div>
                 </div>
             </section>
@@ -79,8 +78,8 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 台灣主婦聯盟生活消費合作社 新竹分社</p>
-        <p>新竹市 XXXXXXX 路 | 電話：03-XXXXXXX</p>
+        <p>&copy; 2026 台灣主婦聯盟生活消費合作社 新竹分社</p>
+        <p>新竹分社 | 致力於友善環境與安全物資</p>
     </footer>
 
 </body>
